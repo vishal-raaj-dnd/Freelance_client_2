@@ -58,7 +58,7 @@ export function Contact() {
                    <div>
                      <h4 className="font-bold text-primary mb-1">Email</h4>
                      <p className="text-text-muted font-medium leading-relaxed">
-                       info@dawoodiyyah.edu<br/>admissions@dawoodiyyah.edu
+                       info@dawoodiya.edu<br/>admissions@dawoodiya.edu
                      </p>
                    </div>
                  </div>

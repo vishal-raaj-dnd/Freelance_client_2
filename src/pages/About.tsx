@@ -206,7 +206,7 @@ export function About() {
             </div>
             
             <p className="text-text-muted font-medium text-lg mb-10 leading-relaxed">
-              Graduates of Dawoodiyyah are illuminating communities across the globe. From community leaders and imams to professionals and academics, our alumni carry the torch of sacred knowledge wherever they go.
+              Graduates of Dawoodiya are illuminating communities across the globe. From community leaders and imams to professionals and academics, our alumni carry the torch of sacred knowledge wherever they go.
             </p>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">

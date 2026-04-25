@@ -110,7 +110,7 @@ export function Home() {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-tertiary drop-shadow-lg z-10 relative">Modern Excellence.</span>
               </h1>
               <p className="text-lg md:text-2xl text-primary/90 max-w-2xl font-serif mb-8 md:mb-10 leading-relaxed text-center drop-shadow-lg">
-                Step into Dawoodiyyah Masjid & Madrasah, a vibrant place where the pursuit of knowledge shapes ethical leadership.
+                Step into Dawoodiya Masjid & Madrasah, a vibrant place where the pursuit of knowledge shapes ethical leadership.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 md:gap-6 w-full sm:w-auto pointer-events-auto flex-wrap justify-center">
@@ -138,10 +138,10 @@ export function Home() {
               <img src="https://picsum.photos/seed/welcome/800/800" alt="Institute" className="relative z-10 rounded-[3rem] shadow-2xl w-full h-auto object-cover" />
             </div>
             <div className="order-1 lg:order-2">
-              <span className="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">Welcome to Dawoodiyyah</span>
+              <span className="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">Welcome to Dawoodiya</span>
               <h2 className="text-4xl md:text-5xl font-display text-text-main font-bold mb-6 leading-tight">Where Knowledge <br/>Meets Action</h2>
               <p className="text-text-muted font-medium text-lg leading-relaxed mb-8">
-                Welcome to a sanctuary of learning and spiritual refinement. For decades, Dawoodiyyah has been a beacon of traditional Islamic scholarship, deeply rooted in the Quran and Sunnah, yet acutely aware of the contemporary needs of the Ummah. We invite you to join a legacy of excellence.
+                Welcome to a sanctuary of learning and spiritual refinement. For decades, Dawoodiya has been a beacon of traditional Islamic scholarship, deeply rooted in the Quran and Sunnah, yet acutely aware of the contemporary needs of the Ummah. We invite you to join a legacy of excellence.
               </p>
               <ul className="space-y-4 mb-10">
                 {[

@@ -131,7 +131,7 @@ export function Navbar() {
                <MasjidIcon className="text-primary" size={20} />
             </motion.div>
             <span className="font-serif text-lg xl:text-xl tracking-wide text-primary group-hover:text-primary transition-colors">
-              Dawoodiyyah
+              Dawoodiya
             </span>
           </NavLink>
 

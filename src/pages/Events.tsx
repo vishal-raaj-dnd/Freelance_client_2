@@ -134,7 +134,7 @@ export function Events() {
           Events & Commemorations
         </h1>
         <p className="text-lg md:text-xl text-primary/80 font-medium max-w-2xl leading-relaxed">
-          Join our gatherings of knowledge, remembrance, and community. Discover upcoming events at Dawoodiyyah.
+          Join our gatherings of knowledge, remembrance, and community. Discover upcoming events at Dawoodiya.
         </p>
       </div>
 

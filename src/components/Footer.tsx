@@ -36,7 +36,7 @@ export function Footer() {
              >
                 <MasjidIcon className="text-primary" size={20} />
              </motion.div>
-             <h3 className="font-display text-xl font-bold text-text-main">Dawoodiyyah Masjid & Madrasah</h3>
+             <h3 className="font-display text-xl font-bold text-text-main">Dawoodiya Masjid & Madrasah</h3>
            </div>
           <p className="text-text-muted font-bold leading-relaxed max-w-xs">
             A place of intellectual clarity and spiritual repose, cultivating minds in a vibrant environment.
@@ -68,7 +68,7 @@ export function Footer() {
         </div>
         
         <div className="md:col-span-4 mt-12 pt-8 border-t border-bg-base text-text-muted font-bold text-xs text-center relative z-10">
-          © 2024 Dawoodiyyah Masjid & Madrasah. All rights reserved. Built with joy.
+          © 2024 Dawoodiya Masjid & Madrasah. All rights reserved.
         </div>
       </div>
     </footer>
