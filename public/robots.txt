@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dawoodiya.vercel.app/sitemap.xml
+Sitemap: https://dawoodiyya.in/sitemap.xml
