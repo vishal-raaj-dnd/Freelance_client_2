@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Global App Background: The Nocturnal Imperial Standard */
+  --color-bg-base: var(--bg-base);
+  /* Lifted Surface */
+  --color-surface: var(--surface); 
+  
+  /* Brand Palette */
+  --color-primary: var(--primary);     
+  --color-secondary: var(--secondary);   
+  --color-tertiary: var(--tertiary);    
+  
+  --color-text-main: var(--text-main);   
+  --color-text-muted: var(--text-muted);  
+
+  --color-inverted: var(--inverted);
+
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Noto Serif", ui-serif, serif;
+}
+
+@layer base {
+  :root {
+    /* LIGHT MODE (default) */
+    --bg-base: #F5F1E6; /* Off-white warm background */
+    --surface: #FCFBF8; /* Pure white/slightly warm surface */
+    --primary: #2A2926; /* Dark charcoal */
+    --secondary: #6B705C; /* Light olive  */
+    --tertiary: #A5A58D; /* Lighter olive */
+    --text-main: #1C1B1A; /* Very dark text */
+    --text-muted: #55534E; /* Muted text */
+    --inverted: #F5F1E6; /* Text on primary buttons */
+  }
+
+  .dark-mode {
+    /* DARK MODE */
+    --bg-base: #131313;
+    --surface: #1E1E1E;
+    --primary: #DCCBA4;     
+    --secondary: #F9E7BF;   
+    --tertiary: #CBC7AC;    
+    --text-main: #F9E7BF;   
+    --text-muted: #DCCBA4;  
+    --inverted: #131313; /* Things that are dark on dark mode, light on light mode usually. Inverted means text on primary color button. */
+  }
+
+  html {
+  }
+  
+  body {
+    @apply bg-bg-base text-text-main font-sans antialiased selection:bg-primary/20 transition-colors duration-500;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold;
+  }
+}
+
+/* Clean UI classes carefully calibrated to the newly requested palette */
+@layer utilities {
+  .clay-card {
+    @apply bg-surface border border-primary/10 rounded-[2rem];
+  }
+
+  .clay-card-dark {
+    @apply bg-bg-base border border-primary/10 rounded-[2rem];
+  }
+
+  .clay-btn {
+    @apply rounded-2xl font-bold transition-all duration-200 active:scale-95 border border-primary/20;
+  }
+  
+  .clay-btn-primary {
+    @apply bg-primary text-inverted hover:bg-secondary border-none;
+  }
+
+  .clay-btn-secondary {
+    @apply bg-surface text-secondary hover:bg-primary hover:text-inverted border border-primary/20;
+  }
+
+  .clay-input {
+    @apply bg-bg-base border border-primary/20 rounded-[1.5rem];
+  }
+  
+  .clay-badge {
+    @apply bg-surface border border-primary/20 rounded-full px-4 py-2 font-bold text-xs text-primary;
+  }
+}
