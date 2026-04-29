@@ -2,40 +2,42 @@ import React from 'react';
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { ArrowRight, Clock, User, Tag } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export function Blog() {
+  const { t } = useTranslation();
   const posts = [
     {
-      title: "The Importance of Intentions Before Seeking Knowledge",
-      author: "Shaykh Abdullah",
-      date: "Rajab 14, 1445",
-      category: "Tazkiyah",
+      title: t('blog.post1Title'),
+      author: t('blog.post1Author'),
+      date: t('blog.post1Date'),
+      category: t('blog.post1Category'),
       image: "https://picsum.photos/seed/blog1/800/500",
-      excerpt: "Before opening the book of Syntax or Jurisprudence, the heart must be emptied of all motives other than the pleasure of the Divine. A deep dive into the foundational Hadith of intentions."
+      excerpt: t('blog.post1Excerpt')
     },
     {
-      title: "Understanding the Usul of Imam Abu Hanifa",
-      author: "Mufti Zaid",
-      date: "Jumada al-Thani 28, 1445",
-      category: "Fiqh",
+      title: t('blog.post2Title'),
+      author: t('blog.post2Author'),
+      date: t('blog.post2Date'),
+      category: t('blog.post2Category'),
       image: "https://picsum.photos/seed/blog2/800/500",
-      excerpt: "A historical and academic breakdown of how the Hanafi school extrapolates rulings from the primary texts, and why its methodology has stood the test of time."
+      excerpt: t('blog.post2Excerpt')
     },
     {
-      title: "Student Life: Balancing Hifz and Academics",
-      author: "Admin",
-      date: "Jumada al-Awwal 10, 1445",
-      category: "Campus Life",
+      title: t('blog.post3Title'),
+      author: t('blog.post3Author'),
+      date: t('blog.post3Date'),
+      category: t('blog.post3Category'),
       image: "https://picsum.photos/seed/blog3/800/500",
-      excerpt: "An interview with three of our top-performing students on how they manage the rigorous demands of memorizing the Quran while keeping up with the Dars-e-Nizami curriculum."
+      excerpt: t('blog.post3Excerpt')
     },
     {
-      title: "The Revival of Arabic Rhetoric (Balaghah)",
-      author: "Ustadha Fatima",
-      date: "Rabi al-Thani 5, 1445",
-      category: "Language",
+      title: t('blog.post4Title'),
+      author: t('blog.post4Author'),
+      date: t('blog.post4Date'),
+      category: t('blog.post4Category'),
       image: "https://picsum.photos/seed/blog4/800/500",
-      excerpt: "Why understanding the intricate subtleties of classical Arabic rhetoric is absolutely non-negotiable for anyone wishing to truly taste the linguistic miracle of the Quran."
+      excerpt: t('blog.post4Excerpt')
     }
   ];
 
@@ -44,13 +46,13 @@ export function Blog() {
       {/* Header */}
       <div className="py-20 px-6 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-end gap-6">
         <div className="max-w-2xl">
-          <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 tracking-tight text-inverted">Insights & Articles</h1>
+          <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 tracking-tight text-inverted">{t('blog.title')}</h1>
           <p className="text-xl font-medium text-text-muted leading-relaxed">
-            Read the latest essays, academic breakdowns, and campus news written by our esteemed faculty and student body.
+            {t('blog.desc')}
           </p>
         </div>
         <div className="flex gap-2">
-           {['All', 'Fiqh', 'Tazkiyah', 'Language'].map((cat, i) => (
+           {[t('blog.catAll'), t('blog.catFiqh'), t('blog.catTazkiyah'), t('blog.catLanguage')].map((cat, i) => (
              <button key={i} className={`px-5 py-2 rounded-full text-sm font-bold transition-colors ${i===0 ? 'bg-bg-base text-primary' : 'bg-secondary text-text-muted hover:bg-primary hover:text-inverted'}`}>
                {cat}
              </button>
@@ -75,7 +77,7 @@ export function Blog() {
             <div className="flex items-center justify-between mt-auto">
               <span className="text-primary font-bold flex items-center gap-2"><User size={18} className="text-primary"/> {posts[0].author}</span>
               <Button variant="outline" className="border-none !p-0 !bg-transparent text-primary group-hover:translate-x-2 transition-transform">
-                Read Article <ArrowRight size={18} />
+                {t('blog.readArticle')} <ArrowRight size={18} />
               </Button>
             </div>
           </div>
@@ -107,7 +109,7 @@ export function Blog() {
         </div>
 
         <div className="text-center mt-16">
-          <Button variant="outline" className="!px-10 !py-3">Load More Articles</Button>
+          <Button variant="outline" className="!px-10 !py-3">{t('blog.loadMore')}</Button>
         </div>
 
       </div>
