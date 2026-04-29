@@ -4,6 +4,7 @@ import { Button } from '../components/ui/Button';
 import { BookOpen, GraduationCap, Building2, Heart, Calendar, MessageCircle, Star, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, useMotionValueEvent, useSpring } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 
 const GoldSprinkles = () => {
   return (
@@ -34,6 +35,7 @@ const GoldSprinkles = () => {
 };
 
 export function Home() {
+  const { t } = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   
@@ -95,30 +97,30 @@ export function Home() {
             {/* Sequence 1 Text - Divine Monolith feel */}
             <motion.div style={{ opacity: text1Opacity, y: text1Y }} className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-4">
               <div className="bg-surface/40 backdrop-blur-md border border-primary/20 text-primary px-4 md:px-6 py-2 rounded-full mb-6 md:mb-8 inline-flex items-center gap-2 font-medium text-sm md:text-base">
-                 <Heart size={14} className="fill-secondary text-primary" /> The Nocturnal Imperial Standard
+                 <Heart size={14} className="fill-secondary text-primary" /> {t('home.badge')}
               </div>
               <h1 className="text-5xl md:text-8xl font-serif text-primary mb-6 md:mb-8 leading-[1.2] md:leading-[1.1] tracking-tight drop-shadow-2xl">
-                Nurturing Hearts,<br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-tertiary drop-shadow-lg z-10 relative">Illuminating Minds.</span>
+                {t('home.hero1_title')}<br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-tertiary drop-shadow-lg z-10 relative">{t('home.hero1_subtitle')}</span>
               </h1>
             </motion.div>
 
             {/* Sequence 2 Text */}
             <motion.div style={{ opacity: text2Opacity, y: text2Y }} className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none pt-[5vh] px-4">
               <h1 className="text-4xl md:text-7xl font-serif text-primary mb-4 md:mb-6 leading-[1.2] md:leading-[1.1] tracking-tight drop-shadow-2xl">
-                Classical Tradition.<br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-tertiary drop-shadow-lg z-10 relative">Modern Excellence.</span>
+                {t('home.hero2_title')}<br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-tertiary drop-shadow-lg z-10 relative">{t('home.hero2_subtitle')}</span>
               </h1>
               <p className="text-lg md:text-2xl text-primary/90 max-w-2xl font-serif mb-8 md:mb-10 leading-relaxed text-center drop-shadow-lg">
-                Step into Dawoodiya Masjid & Madrasah, a vibrant place where the pursuit of knowledge shapes ethical leadership.
+                {t('home.hero_desc')}
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 md:gap-6 w-full sm:w-auto pointer-events-auto flex-wrap justify-center">
                 <Link to="/admissions" className="w-full sm:w-auto">
-                   <Button className="w-full sm:w-auto hover:scale-105 transition-transform !px-8 md:!px-10 !py-4 text-lg !bg-primary !text-inverted hover:!bg-secondary !border-none font-bold">Apply Now</Button>
+                   <Button className="w-full sm:w-auto hover:scale-105 transition-transform !px-8 md:!px-10 !py-4 text-lg !bg-primary !text-inverted hover:!bg-secondary !border-none font-bold">{t('home.applyNow')}</Button>
                 </Link>
                 <Link to="/about" className="w-full sm:w-auto">
-                  <Button variant="outline" className="w-full sm:w-auto hover:bg-surface backdrop-blur-sm !px-8 md:!px-10 !py-4 text-lg !border-primary text-primary">Discover More</Button>
+                  <Button variant="outline" className="w-full sm:w-auto hover:bg-surface backdrop-blur-sm !px-8 md:!px-10 !py-4 text-lg !border-primary text-primary">{t('home.discoverMore')}</Button>
                 </Link>
               </div>
             </motion.div>
@@ -138,17 +140,17 @@ export function Home() {
               <img src="https://picsum.photos/seed/welcome/800/800" alt="Institute" className="relative z-10 rounded-[3rem] shadow-2xl w-full h-auto object-cover" />
             </div>
             <div className="order-1 lg:order-2">
-              <span className="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">Welcome to Dawoodiya</span>
-              <h2 className="text-4xl md:text-5xl font-display text-text-main font-bold mb-6 leading-tight">Where Knowledge <br/>Meets Action</h2>
+              <span className="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">{t('home.welcomeSub')}</span>
+              <h2 className="text-4xl md:text-5xl font-display text-text-main font-bold mb-6 leading-tight" dangerouslySetInnerHTML={{ __html: t('home.welcomeTitle') }}></h2>
               <p className="text-text-muted font-medium text-lg leading-relaxed mb-8">
-                Welcome to a sanctuary of learning and spiritual refinement. For decades, Dawoodiya has been a beacon of traditional Islamic scholarship, deeply rooted in the Quran and Sunnah, yet acutely aware of the contemporary needs of the Ummah. We invite you to join a legacy of excellence.
+                {t('home.welcomeDesc')}
               </p>
               <ul className="space-y-4 mb-10">
                 {[
-                  "Complete Dars-e-Nizami Curriculum",
-                  "Dedicated Hifz & Tajweed Tracks",
-                  "Comprehensive Boarding Facilities",
-                  "Global Alumni Network"
+                  t('home.list1'),
+                  t('home.list2'),
+                  t('home.list3'),
+                  t('home.list4')
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-center gap-3 font-bold text-text-main">
                     <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-primary">✓</div>
@@ -157,7 +159,7 @@ export function Home() {
                 ))}
               </ul>
               <Link to="/about">
-                <Button variant="outline" className="border-2 font-bold !px-8">Read Our History</Button>
+                <Button variant="outline" className="border-2 font-bold !px-8">{t('home.readHistory')}</Button>
               </Link>
             </div>
           </section>
@@ -165,9 +167,9 @@ export function Home() {
           {/* Pillars Section */}
           <section className="py-24">
             <div className="text-center mb-20">
-               <div className="clay-badge text-tertiary mb-6 inline-block">Our Core</div>
-               <h2 className="text-4xl md:text-5xl font-display text-text-main font-bold mb-4">Pillars of Wisdom</h2>
-               <p className="text-text-muted font-medium text-lg max-w-2xl mx-auto">The foundation upon which our institution and our students' success is built.</p>
+               <div className="clay-badge text-tertiary mb-6 inline-block">{t('home.core')}</div>
+               <h2 className="text-4xl md:text-5xl font-display text-text-main font-bold mb-4">{t('home.pillarsTitle')}</h2>
+               <p className="text-text-muted font-medium text-lg max-w-2xl mx-auto">{t('home.pillarsDesc')}</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
               
@@ -175,12 +177,12 @@ export function Home() {
                 <div className="w-24 h-24 clay-input rounded-[2rem] flex items-center justify-center mb-8 text-primary shadow-inner">
                   <BookOpen size={40} strokeWidth={2.5} />
                 </div>
-                <h3 className="text-2xl font-display mb-4 text-text-main font-bold">Sacred Library</h3>
+                <h3 className="text-2xl font-display mb-4 text-text-main font-bold">{t('home.sacredLibrary')}</h3>
                 <p className="text-text-muted font-bold leading-relaxed mb-8 flex-grow">
-                  A grand treasury containing thousands of manuscripts waiting to illuminate the seeker's path.
+                  {t('home.sacredLibraryDesc')}
                 </p>
                 <Link to="/library">
-                  <Button variant="outline" className="!py-3 !px-6 !text-sm">Explore Library</Button>
+                  <Button variant="outline" className="!py-3 !px-6 !text-sm">{t('home.exploreLibrary')}</Button>
                 </Link>
               </Card>
 
@@ -188,12 +190,12 @@ export function Home() {
                 <div className="w-24 h-24 clay-input rounded-[2rem] flex items-center justify-center mb-8 text-primary shadow-inner">
                    <GraduationCap size={40} strokeWidth={2.5} />
                 </div>
-                <h3 className="text-2xl font-display mb-4 text-text-main font-bold">Academics</h3>
+                <h3 className="text-2xl font-display mb-4 text-text-main font-bold">{t('home.academicsTitle')}</h3>
                 <p className="text-text-muted font-bold leading-relaxed mb-8 flex-grow">
-                  Bright, rigorous syllabus forged through time to shape the passionate scholars of tomorrow.
+                  {t('home.academicsDesc')}
                 </p>
                 <Link to="/academics">
-                  <Button variant="secondary" className="!py-3 !px-6 !text-sm">View Syllabus</Button>
+                  <Button variant="secondary" className="!py-3 !px-6 !text-sm">{t('home.viewSyllabus')}</Button>
                 </Link>
               </Card>
 
@@ -201,12 +203,12 @@ export function Home() {
                 <div className="w-24 h-24 clay-input rounded-[2rem] flex items-center justify-center mb-8 text-tertiary shadow-inner">
                    <Building2 size={40} strokeWidth={2.5} />
                 </div>
-                <h3 className="text-2xl font-display mb-4 text-text-main font-bold">Community</h3>
+                <h3 className="text-2xl font-display mb-4 text-text-main font-bold">{t('home.communityTitle')}</h3>
                 <p className="text-text-muted font-bold leading-relaxed mb-8 flex-grow">
-                  Join a vibrant, supportive ecosystem dedicated to spiritual growth and ethical leadership.
+                  {t('home.communityDesc')}
                 </p>
                 <Link to="/about">
-                  <Button variant="tertiary" className="!py-3 !px-6 !text-sm">Our Legacy</Button>
+                  <Button variant="tertiary" className="!py-3 !px-6 !text-sm">{t('home.ourLegacy')}</Button>
                 </Link>
               </Card>
 
@@ -219,22 +221,22 @@ export function Home() {
                <div className="space-y-3 group-hover:-translate-y-1 transition-transform">
                  <Users size={32} className="text-secondary mx-auto mb-4" />
                  <h3 className="text-5xl font-display font-black text-primary">3,500+</h3>
-                 <p className="font-bold text-text-muted tracking-wider uppercase text-sm">Active Students</p>
+                 <p className="font-bold text-text-muted tracking-wider uppercase text-sm">{t('home.statStudents')}</p>
                </div>
                <div className="space-y-3 group-hover:-translate-y-1 transition-transform delay-75">
                  <Star size={32} className="text-secondary mx-auto mb-4" />
                  <h3 className="text-5xl font-display font-black text-primary">5,000+</h3>
-                 <p className="font-bold text-text-muted tracking-wider uppercase text-sm">Graduates Network</p>
+                 <p className="font-bold text-text-muted tracking-wider uppercase text-sm">{t('home.statGraduates')}</p>
                </div>
                <div className="space-y-3 group-hover:-translate-y-1 transition-transform delay-150">
                  <BookOpen size={32} className="text-secondary mx-auto mb-4" />
                  <h3 className="text-5xl font-display font-black text-primary">15,000+</h3>
-                 <p className="font-bold text-text-muted tracking-wider uppercase text-sm">Library Volumes</p>
+                 <p className="font-bold text-text-muted tracking-wider uppercase text-sm">{t('home.statBooks')}</p>
                </div>
                <div className="space-y-3 group-hover:-translate-y-1 transition-transform delay-200">
                  <Building2 size={32} className="text-secondary mx-auto mb-4" />
                  <h3 className="text-5xl font-display font-black text-primary">45</h3>
-                 <p className="font-bold text-text-muted tracking-wider uppercase text-sm">Years of Legacy</p>
+                 <p className="font-bold text-text-muted tracking-wider uppercase text-sm">{t('home.statYears')}</p>
                </div>
             </Card>
           </section>
@@ -243,20 +245,20 @@ export function Home() {
           <section className="py-24 border-t border-primary/20">
             <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
               <div className="max-w-2xl">
-                <span className="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">Calendar</span>
-                <h2 className="text-4xl font-display text-text-main font-bold">Upcoming Events</h2>
+                <span className="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">{t('home.calendarSub')}</span>
+                <h2 className="text-4xl font-display text-text-main font-bold">{t('home.eventsTitle')}</h2>
               </div>
               <Link to="/events">
-                <Button variant="outline" className="shrink-0 font-bold">View All Events</Button>
+                <Button variant="outline" className="shrink-0 font-bold">{t('home.viewAllEvents')}</Button>
               </Link>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {[
-                { day: "15", month: "OCT", title: "Annual Convocation Ceremony", desc: "Honoring our graduating class of scholars." },
-                { day: "22", month: "OCT", title: "Open Day for Admissions", desc: "Campus tours, faculty meet-and-greet, and Q&A." },
-                { day: "05", month: "NOV", title: "Intensive Hadith Seminar", desc: "A weekend deep-dive into the narrations of Sahih Bukhari." },
-                { day: "18", month: "NOV", title: "Community Iftar & Gather", desc: "A spiritual evening of remembrance and breaking fast." }
+                { day: "15", month: t('home.event1_month'), title: t('home.event1_title'), desc: t('home.event1_desc') },
+                { day: "22", month: t('home.event2_month'), title: t('home.event2_title'), desc: t('home.event2_desc') },
+                { day: "05", month: t('home.event3_month'), title: t('home.event3_title'), desc: t('home.event3_desc') },
+                { day: "18", month: t('home.event4_month'), title: t('home.event4_title'), desc: t('home.event4_desc') }
               ].map((evt, i) => (
                 <Card key={i} className="flex gap-6 !p-6 items-center hover:shadow-xl transition-shadow group cursor-pointer border-l-4 border-transparent hover:border-primary">
                   <div className="w-20 shrink-0 text-center flex flex-col items-center justify-center py-4 bg-bg-base border border-primary/20 rounded-xl group-hover:bg-primary transition-colors">
@@ -280,15 +282,15 @@ export function Home() {
               <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/10 blur-3xl rounded-full"></div>
               
               <div className="relative z-10 p-10 md:p-16 lg:p-20 md:w-2/3">
-                 <div className="clay-badge !bg-primary/10 !text-primary border border-primary/30 backdrop-blur-md mb-6 inline-block">Get In Touch</div>
-                 <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6 text-primary">Have questions about admissions?</h2>
+                 <div className="clay-badge !bg-primary/10 !text-primary border border-primary/30 backdrop-blur-md mb-6 inline-block">{t('home.contactBadge')}</div>
+                 <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6 text-primary">{t('home.contactTitle')}</h2>
                  <p className="text-lg md:text-xl font-sans font-medium text-primary/90 mb-0 leading-relaxed">
-                   Our administration helps guide hundreds of students annually to find their perfect path in Islamic Sciences.
+                   {t('home.contactDesc')}
                  </p>
               </div>
               <div className="relative z-10 p-10 md:p-16 lg:p-20 md:w-1/3 flex justify-center md:justify-end bg-bg-base/60 backdrop-blur-sm self-stretch items-center border-t md:border-t-0 md:border-l border-primary/10">
                  <Link to="/contact">
-                   <Button className="!bg-primary hover:!bg-secondary !text-inverted hover:scale-105 transition-transform !px-8 !py-4 font-bold border-none">Contact Us Today</Button>
+                   <Button className="!bg-primary hover:!bg-secondary !text-inverted hover:scale-105 transition-transform !px-8 !py-4 font-bold border-none">{t('home.contactUsToday')}</Button>
                  </Link>
               </div>
             </Card>

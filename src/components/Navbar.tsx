@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Moon, Sun } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 function useTheme() {
   const [isDark, setIsDark] = useState(false);
@@ -38,79 +39,81 @@ const MasjidIcon = ({ size = 24, className }: { size?: number, className?: strin
 );
 
 const navItems = [
-  { path: '/', label: 'Home' },
+  { path: '/', label: 'nav.home' },
   { 
     path: '/about', 
-    label: 'About Us',
+    label: 'nav.aboutUs',
     subItems: [
-      { path: '/about#history', label: 'History' },
-      { path: '/about#management', label: 'Management' },
-      { path: '/about#professors', label: 'Professors' },
-      { path: '/about#alumni', label: 'Alumni' },
-      { path: '/about#vision-and-mission', label: 'Vision and Mission' },
-      { path: '/about#why-choose-us', label: 'Why Choose Us' },
-      { path: '/about#reviews', label: 'Reviews' },
+      { path: '/about#history', label: 'nav.history' },
+      { path: '/about#management', label: 'nav.management' },
+      { path: '/about#professors', label: 'nav.professors' },
+      { path: '/about#alumni', label: 'nav.alumni' },
+      { path: '/about#vision-and-mission', label: 'nav.visionMission' },
+      { path: '/about#why-choose-us', label: 'nav.whyChooseUs' },
+      { path: '/about#reviews', label: 'nav.reviews' },
     ]
   },
   { 
     path: '/academics', 
-    label: 'Academics',
+    label: 'nav.academics',
     subItems: [
-      { path: '/academics#courses', label: 'Courses' },
-      { path: '/academics#syllabus', label: 'Syllabus' },
-      { path: '/admissions', label: 'Admission' },
-      { path: '/academics#results', label: 'Results' },
-      { path: '/admissions#old-student', label: 'Admission Form (Old Student)' },
-      { path: '/admissions#new-student', label: 'Admission Form (New Student)' },
+      { path: '/academics#courses', label: 'nav.courses' },
+      { path: '/academics#syllabus', label: 'nav.syllabus' },
+      { path: '/admissions', label: 'nav.admission' },
+      { path: '/academics#results', label: 'nav.results' },
+      { path: '/admissions#old-student', label: 'nav.admissionOld' },
+      { path: '/admissions#new-student', label: 'nav.admissionNew' },
     ]
   },
   { 
     path: '/library', 
-    label: 'Library',
+    label: 'nav.library',
     subItems: [
-      { path: '/library#tamil-book-count', label: 'Tamil Book Count' },
-      { path: '/library#english-book-count', label: 'English Book Count' },
-      { path: '/library#urdu-book-count', label: 'Urdu Book Count' },
+      { path: '/library#tamil-book-count', label: 'nav.tamilBooks' },
+      { path: '/library#english-book-count', label: 'nav.englishBooks' },
+      { path: '/library#urdu-book-count', label: 'nav.urduBooks' },
     ]
   },
   { 
     path: '/blog', 
-    label: 'Fatwa',
+    label: 'nav.fatwa',
     subItems: [
-      { path: '/fatwa#blog1', label: 'Blog 1' },
-      { path: '/fatwa#blog2', label: 'Blog 2' },
-      { path: '/fatwa#blog3', label: 'Blog 3' },
-      { path: '/fatwa#blog4', label: 'Blog 4' },
-      { path: '/blog', label: 'More Blogs' },
+      { path: '/fatwa#blog1', label: 'nav.blog1' },
+      { path: '/fatwa#blog2', label: 'nav.blog2' },
+      { path: '/fatwa#blog3', label: 'nav.blog3' },
+      { path: '/fatwa#blog4', label: 'nav.blog4' },
+      { path: '/blog', label: 'nav.moreBlogs' },
     ]
   },
   { 
     path: '/gallery', 
-    label: 'Gallery',
+    label: 'nav.gallery',
     subItems: [
-      { path: '/gallery#old-building', label: 'Old Building' },
-      { path: '/gallery#new-building', label: 'New Building' },
-      { path: '/gallery#future', label: 'Future' },
+      { path: '/gallery#old-building', label: 'nav.oldBuilding' },
+      { path: '/gallery#new-building', label: 'nav.newBuilding' },
+      { path: '/gallery#future', label: 'nav.future' },
     ]
   },
   { 
     path: '/contact', 
-    label: 'Contact Us',
+    label: 'nav.contactUs',
     subItems: [
-      { path: '/contact#office-number', label: 'Office Number' },
-      { path: '/contact#principal', label: 'Principal' },
-      { path: '/contact#vice-principal', label: 'Vice Principal' },
-      { path: '/contact#forms', label: 'Forms' },
-      { path: '/contact#map-location', label: 'Map Location' },
+      { path: '/contact#office-number', label: 'nav.officeNum' },
+      { path: '/contact#principal', label: 'nav.principal' },
+      { path: '/contact#vice-principal', label: 'nav.vicePrincipal' },
+      { path: '/contact#forms', label: 'nav.forms' },
+      { path: '/contact#map-location', label: 'nav.mapLocation' },
     ]
   },
 ];
+
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
   const { isDark, toggleTheme } = useTheme();
+  const { t, i18n } = useTranslation();
 
   // Helper to determine if a dropdown should stay lit up
   const isParentActive = (itemPath: string) => {
@@ -131,7 +134,7 @@ export function Navbar() {
                <MasjidIcon className="text-primary" size={20} />
             </motion.div>
             <span className="font-serif text-lg xl:text-xl tracking-wide text-primary group-hover:text-primary transition-colors">
-              Dawoodiya
+              {t('nav.brand')}
             </span>
           </NavLink>
 
@@ -154,7 +157,7 @@ export function Navbar() {
                         : "text-primary/80 hover:text-secondary hover:bg-surface"
                     )}
                   >
-                    {item.label} <ChevronDown size={14} className={cn("transition-transform", activeDropdown === item.path && "rotate-180")} />
+                    {t(item.label)} <ChevronDown size={14} className={cn("transition-transform", activeDropdown === item.path && "rotate-180")} />
                   </NavLink>
                   
                   <AnimatePresence>
@@ -175,7 +178,7 @@ export function Navbar() {
                             }}
                             className="block px-5 py-3 text-sm font-bold text-primary/80 hover:text-inverted hover:bg-gradient-to-r hover:from-primary hover:to-secondary transition-all"
                           >
-                            {subItem.label}
+                            {t(subItem.label)}
                           </a>
                         ))}
                       </motion.div>
@@ -195,7 +198,7 @@ export function Navbar() {
                     )
                   }
                 >
-                  {item.label}
+                  {t(item.label)}
                 </NavLink>
               )
             ))}
@@ -209,9 +212,18 @@ export function Navbar() {
             >
               {isDark ? <Sun size={18} /> : <Moon size={18} />}
             </button>
-            <Button className="!bg-tertiary !text-inverted hover:!bg-secondary !border-none !py-2 !px-6 text-[13px]">
-              Donate
-            </Button>
+            <div className="relative group">
+              <select 
+                value={i18n.language} 
+                onChange={(e) => i18n.changeLanguage(e.target.value)}
+                className="appearance-none bg-surface border border-primary/20 text-primary text-[13px] font-bold py-2 pl-4 pr-8 rounded-full outline-none hover:bg-primary hover:text-inverted transition-colors cursor-pointer"
+              >
+                <option value="en">English</option>
+                <option value="ta">தமிழ்</option>
+                <option value="ur">اردو</option>
+              </select>
+              <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-primary group-hover:text-inverted" />
+            </div>
           </div>
 
           {/* Actions Dropdown Trigger (Mobile) */}
@@ -247,7 +259,7 @@ export function Navbar() {
               className="fixed top-0 right-0 bottom-0 w-80 bg-bg-base border-l border-primary/20 z-[70] flex flex-col p-6 shadow-[[-20px_0_50px_rgba(0,0,0,0.5)]] overflow-y-auto"
             >
               <div className="flex justify-between items-center mb-8 pb-6 border-b border-primary/10 shrink-0">
-                <span className="font-serif text-xl tracking-wide text-primary">Menu</span>
+                <span className="font-serif text-xl tracking-wide text-primary">{t('nav.menu')}</span>
                 <button 
                   onClick={() => setIsOpen(false)}
                   className="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-primary border border-primary/20"
@@ -271,7 +283,7 @@ export function Navbar() {
                         )
                       }
                     >
-                      {item.label}
+                      {t(item.label)}
                     </NavLink>
                     {item.subItems && (
                       <div className="pl-6 flex flex-col gap-1 mt-1 mb-2 border-l-2 border-primary/10 ml-6">
@@ -282,7 +294,7 @@ export function Navbar() {
                             onClick={() => setIsOpen(false)}
                             className="text-sm font-semibold py-2 px-4 rounded-lg text-primary/70 hover:text-inverted hover:bg-gradient-to-r hover:from-primary hover:to-secondary transition-all"
                           >
-                            {subItem.label}
+                            {t(subItem.label)}
                           </a>
                         ))}
                       </div>
@@ -291,10 +303,21 @@ export function Navbar() {
                 ))}
               </div>
 
-              <div className="pt-6 border-t border-primary/10 mt-6 shrink-0">
-                <Button className="w-full !bg-tertiary !text-inverted hover:!bg-secondary !py-4 font-bold text-lg">
-                  Donate
-                </Button>
+              <div className="pt-6 border-t border-primary/10 mt-6 shrink-0 flex gap-2">
+                {['en', 'ta', 'ur'].map((lang) => (
+                  <button 
+                    key={lang}
+                    onClick={() => { i18n.changeLanguage(lang); setIsOpen(false); }}
+                    className={cn(
+                      "flex-1 py-3 font-bold rounded-xl border transition-colors",
+                      i18n.language === lang 
+                        ? "bg-primary text-inverted border-primary" 
+                        : "bg-surface text-primary border-primary/20 hover:bg-primary/10"
+                    )}
+                  >
+                    {lang === 'en' ? 'EN' : lang === 'ta' ? 'தமிழ்' : 'اردو'}
+                  </button>
+                ))}
               </div>
             </motion.div>
           </>
