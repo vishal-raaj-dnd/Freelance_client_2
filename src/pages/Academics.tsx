@@ -2,8 +2,10 @@ import React from 'react';
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { BookOpen, GraduationCap, Library as LibraryIcon, ScrollText, PlayCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export function Academics() {
+  const { t } = useTranslation();
   return (
     <div className="w-full">
       {/* Hero Header */}
@@ -14,10 +16,10 @@ export function Academics() {
           </svg>
         </div>
         <div className="max-w-6xl mx-auto relative z-10 text-center">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 border border-primary/30 text-primary font-bold text-sm tracking-widest uppercase mb-6 shadow-inner">Academic Excellence</span>
-          <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 tracking-tight text-primary">Programs & Curriculum</h1>
+          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 border border-primary/30 text-primary font-bold text-sm tracking-widest uppercase mb-6 shadow-inner">{t('academics.hero_badge')}</span>
+          <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 tracking-tight text-primary">{t('academics.hero_title')}</h1>
           <p className="text-xl md:text-2xl font-medium text-primary/70 max-w-3xl mx-auto leading-relaxed">
-            Unveiling a holistic educational paradigm that bridges the deep roots of classical Dars-e-Nizami with forward-looking contemporary insights.
+            {t('academics.hero_desc')}
           </p>
         </div>
       </div>
@@ -28,16 +30,16 @@ export function Academics() {
         <section>
           <div className="flex items-center gap-4 mb-12">
             <GraduationCap size={40} className="text-primary" />
-            <h2 className="text-4xl font-display font-bold text-primary">The Dawoodiya Methodology</h2>
+            <h2 className="text-4xl font-display font-bold text-primary">{t('academics.methodology_title')}</h2>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <Card className="!p-8 col-span-1 lg:col-span-2 group hover:shadow-2xl transition-shadow bg-gradient-to-br from-white to-surface border border-primary/10">
-              <h3 className="text-2xl font-display font-bold text-primary mb-4">Integrated Dars-e-Nizami</h3>
+              <h3 className="text-2xl font-display font-bold text-primary mb-4">{t('academics.methodology_card1_title')}</h3>
               <p className="text-text-muted font-medium text-lg leading-relaxed mb-6">
-                Our flagship 8-year program masterfully covers foundational Arabic syntax (Nahw) and morphology (Sarf), progressing to advanced rhetoric (Balaghah), jurisprudence (Fiqh), logic (Mantiq), exegesis (Tafsir), and the canonical Hadith collections.
+                {t('academics.methodology_card1_desc')}
               </p>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {['Direct Sanad to Authors', 'Classical Text Immersion', 'Dialectical Training', 'Spiritual Tarbiyah'].map((item, i) => (
+                {[t('academics.methodology_card1_list1'), t('academics.methodology_card1_list2'), t('academics.methodology_card1_list3'), t('academics.methodology_card1_list4')].map((item, i) => (
                   <li key={i} className="flex items-center gap-2 text-primary font-bold text-sm">
                     <div className="w-2 h-2 rounded-full bg-primary"></div>
                     {item}
@@ -47,18 +49,18 @@ export function Academics() {
             </Card>
             <Card className="!p-8 bg-surface text-primary border border-primary/10 hover:shadow-lg transition-shadow">
               <ScrollText size={32} className="mb-6 opacity-80" />
-              <h3 className="text-2xl font-display font-bold mb-4">Memorization (Hifz)</h3>
+              <h3 className="text-2xl font-display font-bold mb-4">{t('academics.methodology_card2_title')}</h3>
               <p className="font-medium mb-6 text-text-muted leading-relaxed">
-                Dedicated intensive tracks for the complete memorization of the Holy Qur'an with strict adherence to Tajweed.
+                {t('academics.methodology_card2_desc')}
               </p>
-              <Button variant="outline" className="w-full">View Tajweed Rules</Button>
+              <Button variant="outline" className="w-full">{t('academics.methodology_card2_btn')}</Button>
             </Card>
           </div>
         </section>
 
         {/* Detailed Programs Bento Grid */}
         <section>
-           <h2 className="text-4xl font-display font-bold text-primary mb-12 text-center">Comprehensive Faculties</h2>
+           <h2 className="text-4xl font-display font-bold text-primary mb-12 text-center">{t('academics.faculties_title')}</h2>
            
            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[280px]">
              {/* Bento Box 1 */}
@@ -66,24 +68,24 @@ export function Academics() {
                <img src="https://picsum.photos/seed/faculty1/800/400" className="absolute inset-0 w-full h-full object-cover transform scale-105 group-hover:scale-100 transition-transform duration-700" alt="Arabic" />
                <div className="absolute inset-0 bg-gradient-to-r from-surface/40 to-bg-base/20"></div>
                <div className="relative z-10 w-full max-w-lg h-full flex flex-col justify-center">
-                 <h3 className="text-3xl font-display font-bold text-primary mb-4">Faculty of Arabic Language</h3>
-                 <p className="text-primary/80 font-medium mb-6">Master the language of the Quran. From fundamental grammar to pre-Islamic poetry and advanced rhetoric.</p>
-                 <Button variant="primary" className="self-start">Explore Syllabus</Button>
+                 <h3 className="text-3xl font-display font-bold text-primary mb-4">{t('academics.faculty1_title')}</h3>
+                 <p className="text-primary/80 font-medium mb-6">{t('academics.faculty1_desc')}</p>
+                 <Button variant="primary" className="self-start">{t('academics.faculty1_btn')}</Button>
                </div>
              </Card>
 
              {/* Bento Box 2 */}
              <Card className="col-span-1 md:col-span-4 !p-8 bg-bg-base border border-primary/20 text-primary flex flex-col justify-end">
                <BookOpen size={48} className="mb-auto opacity-50" />
-               <h3 className="text-2xl font-display font-bold mb-2 text-primary">Faculty of Shari'ah</h3>
-               <p className="text-primary/90 font-medium text-sm">Deep dives into comparative Fiqh, Usul al-Fiqh, and contemporary legal challenges.</p>
+               <h3 className="text-2xl font-display font-bold mb-2 text-primary">{t('academics.faculty2_title')}</h3>
+               <p className="text-primary/90 font-medium text-sm">{t('academics.faculty2_desc')}</p>
              </Card>
 
              {/* Bento Box 3 */}
              <Card className="col-span-1 md:col-span-5 !p-8 flex flex-col justify-center border-t-8 border-primary">
-               <h3 className="text-2xl font-display font-bold text-primary mb-4">Faculty of Usul al-Din</h3>
+               <h3 className="text-2xl font-display font-bold text-primary mb-4">{t('academics.faculty3_title')}</h3>
                <p className="text-primary/80 font-medium leading-relaxed">
-                 Specialized modules covering classical theology (Aqidah), logic, and the critical study of modern philosophies to equip scholars for today's ideological landscape.
+                 {t('academics.faculty3_desc')}
                </p>
              </Card>
 
@@ -92,8 +94,8 @@ export function Academics() {
                 <img src="https://picsum.photos/seed/faculty4/800/400" className="absolute inset-0 w-full h-full object-cover opacity-60 transition-all duration-700" alt="Hadith" />
                <div className="absolute inset-0 bg-surface/30 mix-blend-overlay"></div>
                <div className="absolute bottom-8 left-8 right-8 bg-surface/80 backdrop-blur-md p-6 rounded-xl border border-primary/10">
-                  <h3 className="text-3xl font-display font-bold text-primary mb-2">Specialization in Hadith (Takhassus)</h3>
-                  <p className="text-primary font-bold uppercase tracking-widest text-sm">Post-Graduate Track</p>
+                  <h3 className="text-3xl font-display font-bold text-primary mb-2">{t('academics.faculty4_title')}</h3>
+                  <p className="text-primary font-bold uppercase tracking-widest text-sm">{t('academics.faculty4_badge')}</p>
                </div>
              </Card>
            </div>
@@ -107,20 +109,20 @@ export function Academics() {
              <div className="w-20 h-20 rounded-full bg-secondary/10 backdrop-blur-md border border-secondary/20 flex items-center justify-center cursor-pointer hover:bg-secondary/20 transition-colors mb-8 hover:scale-110 transform">
                <PlayCircle size={40} className="text-primary" />
              </div>
-             <h2 className="text-4xl font-display font-bold text-primary mb-4">Experience a Lecture</h2>
-             <p className="text-primary/80 font-medium text-lg max-w-xl">Take a glimpse inside our classrooms and experience the profound spiritual ambiance of traditional transmission.</p>
+             <h2 className="text-4xl font-display font-bold text-primary mb-4">{t('academics.video_title')}</h2>
+             <p className="text-primary/80 font-medium text-lg max-w-xl">{t('academics.video_desc')}</p>
           </div>
         </section>
 
         {/* CTA */}
         <section className="text-center pb-20">
-          <h2 className="text-4xl font-display font-bold text-primary mb-6">Ready to seek knowledge?</h2>
+          <h2 className="text-4xl font-display font-bold text-primary mb-6">{t('academics.cta_title')}</h2>
           <p className="text-xl text-text-muted font-medium mb-10 max-w-2xl mx-auto">
-            Admissions for the upcoming academic year are now open. Review the prerequisites and join a vibrant community of seekers.
+            {t('academics.cta_desc')}
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button variant="primary" className="!text-lg !px-10 py-4">Apply for Admission</Button>
-            <Button variant="outline" className="!text-lg !px-10 py-4">Download Prospectus</Button>
+            <Button variant="primary" className="!text-lg !px-10 py-4">{t('academics.cta_btn1')}</Button>
+            <Button variant="outline" className="!text-lg !px-10 py-4">{t('academics.cta_btn2')}</Button>
           </div>
         </section>
 

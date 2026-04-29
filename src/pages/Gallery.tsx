@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from '../components/ui/Card';
+import { useTranslation } from 'react-i18next';
 
 const images = [
   { id: 1, height: 'h-64', seed: 'architecture' },
@@ -11,14 +12,15 @@ const images = [
 ];
 
 export function Gallery() {
+  const { t } = useTranslation();
   return (
     <div className="max-w-7xl mx-auto px-6 py-16">
       
       <div className="text-center mb-20">
-        <div className="clay-badge text-primary mb-6 inline-block">Visual Archives</div>
-        <h1 className="text-5xl md:text-6xl font-display text-text-main font-bold mb-6">Our Visual Legacy</h1>
+        <div className="clay-badge text-primary mb-6 inline-block">{t('gallery.badge')}</div>
+        <h1 className="text-5xl md:text-6xl font-display text-text-main font-bold mb-6">{t('gallery.title')}</h1>
         <p className="text-xl text-text-muted font-bold max-w-2xl mx-auto">
-          Moments captured around the Masjid and Madrasah, reflecting the peace and bright vitality of our community.
+          {t('gallery.desc')}
         </p>
       </div>
 

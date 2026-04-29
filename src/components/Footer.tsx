@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 
 const MasjidIcon = ({ size = 24, className }: { size?: number, className?: string }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -14,6 +15,7 @@ const MasjidIcon = ({ size = 24, className }: { size?: number, className?: strin
 );
 
 export function Footer() {
+  const { t } = useTranslation();
   return (
     <footer className="mt-24 pb-12 px-6 lg:px-12 relative z-10 w-full mb-8 max-w-7xl mx-auto block">
       <div className="clay-card !rounded-[3rem] p-12 md:p-16 grid grid-cols-1 md:grid-cols-4 gap-12 text-sm font-sans relative overflow-hidden">
@@ -36,39 +38,39 @@ export function Footer() {
              >
                 <MasjidIcon className="text-primary" size={20} />
              </motion.div>
-             <h3 className="font-display text-xl font-bold text-text-main">Dawoodiya Masjid & Madrasah</h3>
+             <h3 className="font-display text-xl font-bold text-text-main">{t('nav.brand')} Masjid & Madrasah</h3>
            </div>
           <p className="text-text-muted font-bold leading-relaxed max-w-xs">
-            A place of intellectual clarity and spiritual repose, cultivating minds in a vibrant environment.
+            {t('footer.brandDesc')}
           </p>
         </div>
 
         <div className="relative z-10">
-          <h4 className="font-display font-bold mb-6 text-primary text-sm uppercase tracking-wider">Quick Links</h4>
+          <h4 className="font-display font-bold mb-6 text-primary text-sm uppercase tracking-wider">{t('footer.quickLinks')}</h4>
           <ul className="space-y-4 font-bold text-text-muted/80">
-            <li><NavLink to="/notice" className="hover:text-primary transition-colors">Notice Board</NavLink></li>
-            <li><NavLink to="/scholarships" className="hover:text-primary transition-colors">Scholarships</NavLink></li>
-            <li><NavLink to="/admissions" className="hover:text-primary transition-colors">Admissions</NavLink></li>
+            <li><NavLink to="/notice" className="hover:text-primary transition-colors">{t('footer.noticeBoard')}</NavLink></li>
+            <li><NavLink to="/scholarships" className="hover:text-primary transition-colors">{t('footer.scholarships')}</NavLink></li>
+            <li><NavLink to="/admissions" className="hover:text-primary transition-colors">{t('nav.admission')}</NavLink></li>
           </ul>
         </div>
 
         <div className="relative z-10">
-          <h4 className="font-display font-bold mb-6 text-primary text-sm uppercase tracking-wider">Legal</h4>
+          <h4 className="font-display font-bold mb-6 text-primary text-sm uppercase tracking-wider">{t('footer.legal')}</h4>
           <ul className="space-y-4 font-bold text-text-muted/80">
-            <li><NavLink to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</NavLink></li>
-            <li><NavLink to="/terms" className="hover:text-primary transition-colors">Terms of Service</NavLink></li>
+            <li><NavLink to="/privacy" className="hover:text-primary transition-colors">{t('footer.privacy')}</NavLink></li>
+            <li><NavLink to="/terms" className="hover:text-primary transition-colors">{t('footer.terms')}</NavLink></li>
           </ul>
         </div>
 
         <div className="relative z-10">
-           <h4 className="font-display font-bold mb-6 text-tertiary text-sm uppercase tracking-wider">Connect</h4>
+           <h4 className="font-display font-bold mb-6 text-tertiary text-sm uppercase tracking-wider">{t('footer.connect')}</h4>
            <ul className="space-y-4 font-bold text-text-muted/80">
-            <li><NavLink to="/contact" className="hover:text-tertiary transition-colors">Contact Us</NavLink></li>
+            <li><NavLink to="/contact" className="hover:text-tertiary transition-colors">{t('nav.contactUs')}</NavLink></li>
           </ul>
         </div>
         
         <div className="md:col-span-4 mt-12 pt-8 border-t border-bg-base text-text-muted font-bold text-xs text-center relative z-10">
-          © 2024 Dawoodiya Masjid & Madrasah. All rights reserved.
+          {t('footer.copyright')}
         </div>
       </div>
     </footer>

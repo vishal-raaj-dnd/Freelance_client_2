@@ -124,7 +124,7 @@ export function Navbar() {
   return (
     <>
       <div className="fixed top-6 left-0 right-0 z-50 px-4 flex justify-center pointer-events-none">
-        <nav className="bg-bg-base/90 backdrop-blur-md rounded-full w-full max-w-7xl h-[72px] flex items-center justify-between px-4 lg:px-8 pointer-events-auto border border-primary/20 relative">
+        <nav className="bg-bg-base/90 backdrop-blur-md rounded-full w-full lg:w-max max-w-[98vw] h-[72px] flex items-center justify-between px-4 lg:px-8 lg:gap-12 pointer-events-auto border border-primary/20 relative transition-all duration-500">
           
           {/* Brand */}
           <NavLink to="/" className="flex items-center gap-3 xl:gap-3 group shrink-0">
