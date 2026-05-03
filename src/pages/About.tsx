@@ -170,32 +170,55 @@ export function About() {
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {[
-                { name: 'Shaykh Abdullah Al-Qasim', role: t('about.prof1_role'), exp: '30+ Years', img: 'https://picsum.photos/seed/prof1/400/400' },
-                { name: 'Mufti Zaid Ibn Tariq', role: t('about.prof2_role'), exp: '25+ Years', img: 'https://picsum.photos/seed/prof2/400/400' },
-                { name: 'Maulana Usama Malik', role: t('about.prof3_role'), exp: '40+ Years', img: 'https://picsum.photos/seed/prof3/400/400' },
-                { name: 'Ustadha Fatima Zahra', role: t('about.prof4_role'), exp: '20+ Years', img: 'https://picsum.photos/seed/prof4/400/400' },
-              ].map((prof, i) => (
-                <Card key={i} className="!p-0 overflow-hidden group">
-                  <div className="h-64 overflow-hidden relative border-b border-primary/10">
-                    <img src={prof.img} alt={prof.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-bg-base/60 via-transparent to-transparent"></div>
-                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-surface/60 backdrop-blur-md">
-                      <h4 className="font-display text-2xl font-bold text-primary tracking-tight">{prof.name}</h4>
-                      <p className="text-primary font-bold text-sm">{prof.role}</p>
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((i) => {
+                const images = [
+                  '/images/subjects/hadith.png',    // 1
+                  '/images/subjects/fiqh.png',      // 2
+                  '/images/subjects/tasawwuf.png',  // 3
+                  '/images/subjects/arabic.png',    // 4
+                  '/images/subjects/quran.png',     // 5
+                  '/images/subjects/general.png',   // 6
+                  '/images/subjects/subject_1.png', // 7
+                  '/images/subjects/subject_2.png', // 8
+                  '/images/subjects/subject_3.png', // 9
+                  '/images/subjects/subject_4.png', // 10
+                  '/images/subjects/subject_5.png', // 11
+                  'https://picsum.photos/seed/islamic12/400/400', // 12
+                  'https://picsum.photos/seed/islamic13/400/400', // 13
+                  'https://picsum.photos/seed/islamic14/400/400', // 14
+                  'https://picsum.photos/seed/islamic15/400/400', // 15
+                ];
+                
+                const subjectImg = images[i - 1];
+                
+                return (
+                  <Card key={i} className="!p-0 overflow-hidden group">
+                    <div className="h-64 overflow-hidden relative border-b border-primary/10">
+                      <img 
+                        src={subjectImg} 
+                        alt={t(`about.prof${i}_name`)} 
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-bg-base/60 via-transparent to-transparent"></div>
+                      <div className="absolute bottom-0 left-0 right-0 p-4 bg-surface/60 backdrop-blur-md">
+                        <h4 className="font-display text-2xl font-bold text-primary tracking-tight">{t(`about.prof${i}_name`)}</h4>
+                        <p className="text-primary font-bold text-sm">{t(`about.prof${i}_role`)}</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="p-6">
-                    <div className="flex justify-between items-center mb-4">
-                      <span className="text-sm font-bold text-text-muted bg-surface px-3 py-1 rounded-full">{t('about.prof_exp_label')}: {prof.exp}</span>
-                      <Search size={18} className="text-primary hover:text-primary cursor-pointer transition-colors" />
+                    <div className="p-6">
+                      <div className="flex justify-between items-center mb-4">
+                        <span className="text-sm font-bold text-text-muted bg-surface px-3 py-1 rounded-full">
+                          {t('about.prof_exp_label')}: {i <= 4 ? (i === 1 ? '30+' : i === 2 ? '25+' : i === 3 ? '40+' : '20+') : '20+'} Years
+                        </span>
+                        <Search size={18} className="text-primary hover:text-primary cursor-pointer transition-colors" />
+                      </div>
+                      <p className="text-text-muted text-sm font-medium leading-relaxed">
+                        {t('about.prof_desc')}
+                      </p>
                     </div>
-                    <p className="text-text-muted text-sm font-medium leading-relaxed">
-                      {t('about.prof_desc')}
-                    </p>
-                  </div>
-                </Card>
-              ))}
+                  </Card>
+                );
+              })}
             </div>
            </div>
         )}
